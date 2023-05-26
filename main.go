@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 
 	"github.com/anibalvenezia/godesde0/variables"
 )
@@ -12,4 +13,24 @@ func main() {
 	estado, texto := variables.ConviertoAtexto(384)
 	fmt.Println(estado)
 	fmt.Println(texto)
+	// Aprendemos sintaxis de IF en GO
+	os := runtime.GOOS
+	if os == "linux" {
+
+	} else {
+		fmt.Println("Su OS no es Linux, es ", os)
+	}
+	// También puedo hacer la asignación dentro del IF
+	if goarch := runtime.GOARCH; goarch == "amd64" {
+		fmt.Println("Arquitectura ", goarch)
+	}
+	// Aprendemos sentencia SWITCH
+	switch os := runtime.GOOS; os {
+	case "linux":
+		fmt.Println("Esto es Linux")
+	case "darwin":
+		fmt.Println("Esto es Darwin")
+	default:
+		fmt.Printf("%s \n", os)
+	}
 }
